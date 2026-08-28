@@ -44,11 +44,11 @@ Depot or small fuel distribution operators — one or two people managing stock 
 - Reduce time to check "current margin + stock" from a multi-tab spreadsheet lookup (~5–10 min) to under 30 seconds on the dashboard
 - Zero unreconciled fleet fuel entries per week once logging is in daily use
 
-## Open questions
+## Open questions — resolved against current build
 
-- Single fuel type or multi-type (petrol/diesel/CNG) support in v1?
-- Does fleet logging need vehicle-level historical trends, or just a running log?
+- **Single vs. multi fuel type:** Resolved as multi-type. The live dashboard already tracks separate stock levels per fuel type (Diesel, Petrol, Gas, and Paraffin observed) per site/terminal, so v1 supports multi-type by default.
+- **Fleet log depth (running log vs. historical trends):** Currently a running log — the Fleet → Fuel Logs view shows each vehicle's most recent dispensed volume (derived from its latest completed delivery) plus a comparison against the fleet average. There's no per-vehicle historical trend/drill-down view yet. Decide whether that's worth adding for v1.1, or whether the running log + fleet-average comparison is enough for the target user.
 
 ## Status
 
-Idea stage — not yet built. This spec is the starting point before implementation.
+Live — v1 is built and deployed. Dashboard, multi-fuel-type inventory tracking, pricing, and fleet fuel logs (running-log style) are implemented and running at https://pryank18.github.io/depotline-fuel-ops/. Remaining open item: whether to add per-vehicle historical trend views beyond the current running log.
