@@ -3272,8 +3272,8 @@ function markSelectedInvoicesPaid(){
 deliveries.filter(d=>d.status==='delivered').forEach(generateInvoiceForDelivery);
 
 /* ============================= PERSISTENCE ============================= */
-// This file runs as a standalone downloaded HTML page (not a sandboxed
-// Artifact preview), so per-origin localStorage is available and safe here.
+// This file runs as a standalone downloaded HTML page (not a sandboxed AI
+// preview), so per-origin localStorage is available and safe here.
 // Wrapped defensively in case it's opened somewhere storage is blocked (private
 // browsing, some in-app browsers) — the app still works, it just won't remember
 // state across a reload in that case.
