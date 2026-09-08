@@ -797,7 +797,7 @@ const ICONS = {
 /* ============================= I18N ============================= */
 const LANG_NAMES = { en:'English', hinglish:'Hinglish', ar:'Arabic', fr:'French', es:'Spanish', pt:'Portuguese' };
 const LOCALE_MAP = { en:'en-US', hinglish:'en-IN', ar:'ar-AE', fr:'fr-FR', es:'es-ES', pt:'pt-PT' };
-// Explicit instruction for the AI assistant — "Hinglish" alone is ambiguous (could read as
+// Note: "Hinglish" alone is ambiguous (could read as
 // Devanagari Hindi mixed with English); this pins down exactly what's wanted: Roman script,
 // Hindi meaning, natural code-mixing with English business terms.
 function aiLanguageInstruction(){
@@ -6664,7 +6664,7 @@ function buildAiContext(){
 
 /* ---- Local rule-based briefing generator ----
    Used whenever the live AI call is unavailable (e.g. hosted outside the
-   Claude artifact preview, where api.anthropic.com can't be reached from
+   certain sandboxed environments, where the AI endpoint can't be reached from
    the browser). Composes a real, data-driven briefing from the same
    structured signals buildAiContext() uses, so the feature always works
    for demos/pilots regardless of hosting. */
@@ -6723,7 +6723,7 @@ async function generateDailyBriefing(){
     dailyBriefing = { text: text || localBriefing(), loading:false, error: null, generatedAt: nowTime() };
   }catch(e){
     // Fall back to the local rule-based briefing instead of showing an error —
-    // keeps the feature working when hosted outside the Claude artifact preview.
+    // keeps the feature working even when the AI endpoint can't be reached directly from
     dailyBriefing = { text: localBriefing(), loading:false, error:null, generatedAt: nowTime() };
   }
   if(currentView==='dashboard') document.getElementById('view').innerHTML = viewDashboard();
@@ -6811,7 +6811,7 @@ async function sendAiMessage(preset){
     aiMessages.push({role:'assistant', content: escapeHtml(replyText).replace(/\n/g,'<br>'), raw: replyText});
   }catch(err){
     // Fall back to a rule-based answer from live data instead of an error bubble —
-    // keeps the assistant panel useful when hosted outside the Claude artifact preview.
+    // keeps the assistant panel useful even when the AI endpoint can't be reached directly
     const replyText = localAiReply(text);
     document.getElementById('aiTyping')?.remove();
     aiMessages.push({role:'assistant', content: escapeHtml(replyText).replace(/\n/g,'<br>'), raw: replyText});
@@ -6823,8 +6823,8 @@ async function sendAiMessage(preset){
 
 /* ---- Local rule-based chat fallback ----
    Answers common ops questions directly from live data when the network
-   call to the AI API is unavailable (e.g. hosted outside the Claude
-   artifact preview). Keeps the assistant panel demoable anywhere. */
+   call to the AI API is unavailable (e.g. hosted in an environment without direct
+   access. Keeps the assistant panel demoable anywhere. */
 function localAiReply(question){
   const q = (question||'').toLowerCase();
   if(/stock|tank|reorder|low/.test(q)){
