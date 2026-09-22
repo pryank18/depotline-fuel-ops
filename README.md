@@ -13,12 +13,29 @@ https://pryank18.github.io/depotline-fuel-ops/
 - **Fleet fuel logs** — log dispensed fuel by vehicle, date, and quantity, kept as a running log with a fleet-average comparison
 - **Dashboard** — one screen combining current stock, current price, and today's dispensed total
 
+## Product decisions
+
+- **One screen instead of three tools.** Stock, pricing, and fleet logs share a dashboard because the core failure is pricing set without current stock in view.
+- **Running log before trend analytics.** Fleet logs show each vehicle's latest volume against the fleet average. Per-vehicle history is parked for v1.1 until it's clear the target operator needs it.
+- **No POS/ERP integration or invoicing in v1.** The target user has neither an ERP nor an ops team; integrations would add setup cost before the core loop is proven.
+- **Responsive web, not a native app.** Operators already have a phone and a browser; an app store install is friction with no v1 payoff.
+
+**How I'd measure it:** time to answer "what's my margin right now" drops from a 5–10 minute spreadsheet lookup to under 30 seconds, and unreconciled fleet fuel entries hit zero per week.
+
+## Data
+
+All companies, people, phone numbers, and figures in the demo are fictional sample data.
+
 ## Documentation
 
 - [Product spec](docs/product-spec.md)
 - [PRD](docs/PRD.md)
 - [BRD](docs/BRD.md)
 - [MRD](docs/MRD.md)
+
+## How it was built
+
+Built AI-assisted with Claude as coding partner. Product scope, requirements (see `docs/`), and QA are mine.
 
 ## Status
 
