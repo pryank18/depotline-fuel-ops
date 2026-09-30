@@ -1,5 +1,9 @@
 # Depotline
 
+> 📘 **[Read the product case study on Notion](https://fern-appliance-85f.notion.site/3ebefd17b76681089891ed7697810089)** — problem, key decisions, what was cut and how I'd measure it.
+>
+> **Live demo:** [pryank18.github.io/depotline-fuel-ops](https://pryank18.github.io/depotline-fuel-ops/) · **Docs:** [PRD](https://github.com/pryank18/depotline-fuel-ops/blob/main/docs/PRD.md) · [BRD](https://github.com/pryank18/depotline-fuel-ops/blob/main/docs/BRD.md) · [MRD](https://github.com/pryank18/depotline-fuel-ops/blob/main/docs/MRD.md) · [Spec](https://github.com/pryank18/depotline-fuel-ops/blob/main/docs/product-spec.md) · **More work:** [Notion portfolio](https://fern-appliance-85f.notion.site/Pryank-Wadhera-3eaefd17b76680c88283e85a3217ff52)
+
 Depotline is a single-screen operations dashboard for small and mid-size fuel depots, unifying inventory, pricing, and fleet fuel logs that are normally scattered across a stock spreadsheet, a separate pricing sheet, and a paper or WhatsApp fleet log.
 
 ## Live demo
