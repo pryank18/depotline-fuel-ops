@@ -6723,6 +6723,11 @@ function localBriefing(){
   return picked.map(l=> `${l.sev} ${l.text}`).join('\n');
 }
 
+/* ---- Assistant endpoint ----
+   Requests go to a server-side endpoint that holds the key and chooses the model.
+   The public demo has no backend, so the briefing and chat use the local rule-based answers below. */
+const ASSISTANT_URL = window.DEPOTLINE_ASSISTANT_URL || '/api/assistant';
+
 /* ---- AI Command Center: proactive briefing on the Dashboard, not buried in chat ---- */
 let dailyBriefing = { text:null, loading:false, error:null, generatedAt:null };
 async function generateDailyBriefing(){
